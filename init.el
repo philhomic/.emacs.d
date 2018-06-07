@@ -63,6 +63,7 @@
 
 ;; disable backup files
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; set code highlight in org mode
 (require 'org)
@@ -124,6 +125,9 @@
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
+;; 当有外部修改时，这个文件自动加载修改后的文件
+(global-auto-revert-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
