@@ -1,0 +1,18 @@
+
+;; ----- smex-history -----
+(
+ package-autoremove
+ eval-buffer
+ customize-group
+ cd
+ 5x5
+ arp
+ dbx
+)
+
+;; ----- smex-data -----
+(
+ (customize-group . 2)
+ (eval-buffer . 1)
+ (package-autoremove . 1)
+)
