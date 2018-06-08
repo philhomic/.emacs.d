@@ -4,8 +4,9 @@
 (setq ring-bell-function 'ignore)
 ;; turn on electric-indent-mode
 (electric-indent-mode t)
-;; show linum-mode
-(global-linum-mode t)
+;; show linum-mode only in prog-mode
+;;(global-linum-mode t)
+(add-hook 'prog-mode-hook 'linum-mode)
 ;; 当有外部修改时，这个文件自动加载修改后的文件
 (global-auto-revert-mode t)
 ;; disable backup files
