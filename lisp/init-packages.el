@@ -47,7 +47,6 @@
 (setq ivy-use-virtual-buffers t)
 
 ;; configure smartparens mode
-(require 'smartparens-config)
 (smartparens-global-mode t)
 
 ;; congifure js2-mode for js files

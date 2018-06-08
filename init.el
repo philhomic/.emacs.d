@@ -1,18 +1,13 @@
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comment
-
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'init-packages)
+(require 'init-ui)
 
 
 ;; config default directory
@@ -21,16 +16,12 @@
 ;; turn off warning bell
 (setq ring-bell-function 'ignore)
 
-; turn off tool-bar
-(tool-bar-mode -1)
-;; turn off scroll-bar
-(scroll-bar-mode -1)
+
 ;; turn on electric-indent-mode
 (electric-indent-mode t)
 ;; show linum-mode
 (global-linum-mode t)
-;; turn off splash screen
-(setq inhibit-splash-screen t)
+
 ;; save your config
 ;; define a function to quickly open your config file.
 (defun open-my-init-file()
@@ -41,8 +32,7 @@
 
 
 
-;; set cursor style
-(setq-default cursor-type 'bar)
+
 
 ;; disable backup files
 (setq make-backup-files nil)
@@ -61,14 +51,12 @@
 ;; add delete selection mode
 (delete-selection-mode t)
 
-;; open with full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 
 ;; show match parentheses
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-;; highlight current line
-(global-hl-line-mode t)
+
 
 
 
