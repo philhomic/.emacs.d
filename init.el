@@ -1,41 +1,25 @@
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comment
+
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(when (>= emacs-major-version 24)
-    (require 'package)
-    (package-initialize)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-    )
+(package-initialize)
 
-(require 'cl)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
-;; add whatever packages you want here
-(defvar philhomic/packages '(
-			       company
-			       monokai-theme
-			       hungry-delete
-			       swiper
-			       counsel
-			       smartparens
-			       js2-mode
-			       nodejs-repl
-			       exec-path-from-shell
-			       ) "Default packages")
+(require 'init-packages)
 
-(setq package-selected-packages philhomic/packages)
 
-(defun philhomic/packages-installed-p ()
-    (loop for pkg in philhomic/packages
-          when (not (package-installed-p pkg)) do (return nil)
-          finally (return t)))
+;; config default directory
+(setq default-directory "d:\\emacs\\")
 
-(unless (philhomic/packages-installed-p)
-    (message "%s" "Refreshing package database...")
-    (package-refresh-contents)
-    (dolist (pkg philhomic/packages)
-      (when (not (package-installed-p pkg))
-        (package-install pkg))))
+;; turn off warning bell
+(setq ring-bell-function 'ignore)
 
 ; turn off tool-bar
 (tool-bar-mode -1)
@@ -55,8 +39,7 @@
 
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 
-;; open global company mode
-(global-company-mode t)
+
 
 ;; set cursor style
 (setq-default cursor-type 'bar)
@@ -87,16 +70,13 @@
 ;; highlight current line
 (global-hl-line-mode t)
 
-;; automatically load theme monokai
-(load-theme 'monokai t)
 
-;; enable hungry-mode
-(require 'hungry-delete)
-(global-hungry-delete-mode)
 
-;; config swiper
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
+
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -104,30 +84,18 @@
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
-;; configure smartparens mode
-(require 'smartparens-config)
-(smartparens-global-mode t)
 
-;; congifure js2-mode for js files
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
-
-;; enable nodejs-repl
-(require 'nodejs-repl)
-;; 要使用的话，M-x nodejs-repl
-
-;; 让命令行在Emacs中可见
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-(global-set-key (kbd "C-h C-f") 'find-function)
-(global-set-key (kbd "C-h C-v") 'find-variable)
-(global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
 ;; 当有外部修改时，这个文件自动加载修改后的文件
 (global-auto-revert-mode t)
+
+;; open abbrev-mode and define my own abbrev
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+;; signature
+					    ("8wp" "philhomic")
+					    ("8ms" "Microsoft")
+))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
