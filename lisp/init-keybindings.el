@@ -16,5 +16,10 @@
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 (with-eval-after-load 'js2-mode
   (define-key js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression))
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+(global-set-key (kbd "M-s o") 'occur-dwim)
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "M-s e") 'iedit-mode)
 
 (provide 'init-keybindings)
