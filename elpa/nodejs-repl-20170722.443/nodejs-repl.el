@@ -424,31 +424,32 @@ otherwise spawn one."
       (goto-char (point-max))
       (delete-region (point-at-bol) (point)))))
 
-(defun nodejs-repl-complete-from-process ()
-  "Dynamically complete tokens at the point."
-  (when (comint-after-pmark-p)
-    (let* ((input (buffer-substring (comint-line-beginning-position) (point)))
-           require-arg
-           token
-           candidates
-           ret)
-      (if (nodejs-repl--in-string-p)
-          (progn
-            (setq require-arg (nodejs-repl--extract-require-argument input))
-            (if (and require-arg
-                     (or (= (length require-arg) 1)
-                         (not (string-match-p "[./]" (substring require-arg 1 2)))))
-                (setq token (concat "require(" require-arg))
-              (setq ret (comint-dynamic-complete-as-filename))))
-        (setq token (nodejs-repl--get-last-token input)))
-      (when token
-        (setq candidates (nodejs-repl-get-candidates token))
-        ;; TODO: write unit test
-        (setq token (replace-regexp-in-string "^require(['\"]" "" token))
-        (setq ret (comint-dynamic-simple-complete token candidates)))
-      (if (eq ret 'sole)
-          (delete-char -1))
-      ret)))
+(defun nodejs-repl-complete-from-process ())
+;;(defun nodejs-repl-complete-from-process ()
+;;  "Dynamically complete tokens at the point."
+;;  (when (comint-after-pmark-p)
+;;    (let* ((input (buffer-substring (comint-line-beginning-position) (point)))
+;;           require-arg
+;;           token
+;;           candidates
+;;           ret)
+;;      (if (nodejs-repl--in-string-p)
+;;          (progn
+;;            (setq require-arg (nodejs-repl--extract-require-argument input))
+;;            (if (and require-arg
+;;                     (or (= (length require-arg) 1)
+;;                         (not (string-match-p "[./]" (substring require-arg 1 2)))))
+;;                (setq token (concat "require(" require-arg))
+;;              (setq ret (comint-dynamic-complete-as-filename))))
+;;        (setq token (nodejs-repl--get-last-token input)))
+;;      (when token
+;;        (setq candidates (nodejs-repl-get-candidates token))
+;;        ;; TODO: write unit test
+;;        (setq token (replace-regexp-in-string "^require(['\"]" "" token))
+;;        (setq ret (comint-dynamic-simple-complete token candidates)))
+;;      (if (eq ret 'sole)
+;;          (delete-char -1))
+;;      ret)))
 
 (defun nodejs-repl-get-candidates (token)
   "Get completion candidates."

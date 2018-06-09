@@ -14,5 +14,7 @@
 (global-set-key (kbd "s-/") 'hippie-expand)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+(with-eval-after-load 'js2-mode
+  (define-key js2-mode-map (kbd "C-x C-e") 'nodejs-repl-send-last-expression))
 
 (provide 'init-keybindings)
