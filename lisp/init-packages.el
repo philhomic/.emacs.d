@@ -21,6 +21,8 @@
 			       js2-refactor
 			       expand-region
 			       iedit
+			       emmet-mode
+			       org-bullets
 			       ) "Default packages")
 
 (setq package-selected-packages philhomic/packages)
@@ -138,8 +140,10 @@
                                    ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
 (add-hook 'js2-mode-hook
 	  (lambda ()
-                (setq imenu-create-index-function 'js2-imenu-make-index)))
-
+	    (setq imenu-create-index-function 'js2-imenu-make-index)))
+;; configure emmet-mode
+(require 'emmet-mode)
+(setq emmet-move-cursor-between-quotes t) ;; set cursor positioned between the first empty quote after expanding
 
 
 (provide 'init-packages)
