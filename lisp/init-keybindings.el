@@ -9,7 +9,7 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-(global-set-key (kbd "C-c p f") 'counsel-git)
+;;(global-set-key (kbd "C-c p f") 'counsel-git)
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 (global-set-key (kbd "s-/") 'hippie-expand)
 (with-eval-after-load 'dired
@@ -26,9 +26,31 @@
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
-(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
+;;(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root
 (add-hook 'js2-mode-hook 'flycheck-mode)
 (global-set-key (kbd "H-w") #'aya-create)
 (global-set-key (kbd "H-y") #'aya-expand)
+(global-set-key (kbd "C-w") 'backward-kill-word)
+(evil-leader/set-key
+  "ff" 'find-file
+  "fr" 'recentf-open-files
+  "bb" 'switch-to-buffer
+  "bk" 'kill-buffer
+  "pf" 'counsel-git
+  "ps" 'helm-do-ag-project-root
+  "0"  'select-window-0
+  "1"  'select-window-1
+  "2"  'select-window-2
+  "3"  'select-window-3
+  "w/" 'split-window-right
+  "w-" 'split-window-below
+  ":"  'counsel-M-x
+  "wM" 'delete-other-windows
+  )
+(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+
+
+
 
 (provide 'init-keybindings)

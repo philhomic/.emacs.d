@@ -8,8 +8,12 @@
  '(custom-safe-themes
    (quote
     ("c3d4af771cbe0501d5a865656802788a9a0ff9cf10a7df704ec8b8ef69017c68" default)))
+ '(evil-leader/leader "SPC")
+ '(evil-want-C-u-scroll t)
  '(popwin:popup-window-position (quote right))
- '(popwin:popup-window-width 60))
+ '(popwin:popup-window-width 60)
+ '(which-key-frame-max-height 60)
+ '(which-key-side-window-location (quote right)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

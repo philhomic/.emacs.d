@@ -28,6 +28,12 @@
 			       yasnippet
 			       yasnippet-snippets
 			       auto-yasnippet
+			       evil
+			       evil-leader
+			       window-numbering
+			       evil-surround
+			       evil-nerd-commenter
+             which-key
 			       ) "Default packages")
 
 (setq package-selected-packages philhomic/packages)
@@ -151,6 +157,16 @@
 (setq emmet-move-cursor-between-quotes t) ;; set cursor positioned between the first empty quote after expanding
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+(evil-mode 1)
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+(global-evil-leader-mode)
+(window-numbering-mode 1)
+(require 'evil-surround)
+(global-evil-surround-mode)
+(evilnc-default-hotkeys)
+(which-key-mode 1)
+
 
 (provide 'init-packages)
 
