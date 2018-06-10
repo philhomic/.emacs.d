@@ -26,6 +26,8 @@
 			       helm-ag
 			       flycheck
 			       yasnippet
+			       yasnippet-snippets
+			       auto-yasnippet
 			       ) "Default packages")
 
 (setq package-selected-packages philhomic/packages)
