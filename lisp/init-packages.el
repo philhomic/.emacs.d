@@ -23,6 +23,9 @@
 			       iedit
 			       emmet-mode
 			       org-bullets
+			       helm-ag
+			       flycheck
+			       yasnippet
 			       ) "Default packages")
 
 (setq package-selected-packages philhomic/packages)
@@ -144,7 +147,8 @@
 ;; configure emmet-mode
 (require 'emmet-mode)
 (setq emmet-move-cursor-between-quotes t) ;; set cursor positioned between the first empty quote after expanding
-
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'init-packages)
 
