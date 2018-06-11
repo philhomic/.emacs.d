@@ -1,54 +1,6 @@
-(when (>= emacs-major-version 24)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-    )
-
 (require 'cl)
 
-;; add whatever packages you want here
-(defvar philhomic/packages '(
-			       company
-			       monokai-theme
-			       hungry-delete
-			       swiper
-			       counsel
-			       smartparens
-			       js2-mode
-			       nodejs-repl
-			       exec-path-from-shell
-			       popwin
-			       reveal-in-osx-finder
-			       web-mode
-			       js2-refactor
-			       expand-region
-			       iedit
-			       emmet-mode
-			       org-bullets
-			       helm-ag
-			       flycheck
-			       yasnippet
-			       yasnippet-snippets
-			       auto-yasnippet
-			       evil
-			       evil-leader
-			       window-numbering
-			       evil-surround
-			       evil-nerd-commenter
-             which-key
-			       ) "Default packages")
 
-(setq package-selected-packages philhomic/packages)
-
-(defun philhomic/packages-installed-p ()
-    (loop for pkg in philhomic/packages
-          when (not (package-installed-p pkg)) do (return nil)
-          finally (return t)))
-
-(unless (philhomic/packages-installed-p)
-    (message "%s" "Refreshing package database...")
-    (package-refresh-contents)
-    (dolist (pkg philhomic/packages)
-      (when (not (package-installed-p pkg))
-        (package-install pkg))))
 
 ;; open global company mode
 (global-company-mode t)

@@ -4,6 +4,12 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
+(require 'pallet)
+(pallet-mode t)
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; save your config
