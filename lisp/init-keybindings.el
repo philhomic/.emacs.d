@@ -34,6 +34,7 @@
 (evil-leader/set-key
   "ff" 'find-file
   "fr" 'recentf-open-files
+  "fs" 'save-buffer
   "bb" 'switch-to-buffer
   "bk" 'kill-buffer
   "pf" 'counsel-git
@@ -47,6 +48,9 @@
   ":"  'counsel-M-x
   "wM" 'delete-other-windows
   "qq" 'save-buffers-kill-terminal
+  "s'" 'org-edit-special
+  "ss" 'org-babel-mark-block
+  "srs" 'scheme-send-region
   )
 (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
