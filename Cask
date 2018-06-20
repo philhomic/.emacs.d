@@ -31,6 +31,7 @@
 (depends-on "multiple-cursors")
 (depends-on "nodejs-repl")
 (depends-on "org-bullets")
+(depends-on "org-download")
 (depends-on "package-build")
 (depends-on "pallet")
 (depends-on "pkg-info")

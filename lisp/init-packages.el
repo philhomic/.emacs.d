@@ -118,7 +118,7 @@
 (global-evil-surround-mode)
 (evilnc-default-hotkeys)
 (which-key-mode 1)
-
+(add-hook 'dired-mode-hook 'org-download-enable)
 
 (provide 'init-packages)
 
