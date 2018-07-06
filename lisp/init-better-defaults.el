@@ -103,5 +103,33 @@
     )
   )
 
+;; 设置花括号之后自动空行并缩进
+(defun radian-enter-and-indent-sexp (&rest _ignored)
+  "Insert an extra newline after point, and reindent."
+  (newline)
+  (indent-according-to-mode)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(dolist (mode '(c-mode c++-mode css-mode objc-mode java-mode
+                       js2-mode json-mode
+                       python-mode sh-mode web-mode js-mode))
+  (sp-local-pair mode "{" nil :post-handlers
+                 '((radian-enter-and-indent-sexp "RET")
+                   (radian-enter-and-indent-sexp "<return>"))))
+
+(dolist (mode '(js2-mode json-mode python-mode web-mode js-mode))
+  (sp-local-pair mode "[" nil :post-handlers
+                 '((radian-enter-and-indent-sexp "RET")
+                   (radian-enter-and-indent-sexp "<return>"))))
+
+(dolist (mode '(python-mode))
+  (sp-local-pair mode "(" nil :post-handlers
+                 '((radian-enter-and-indent-sexp "RET")
+                   (radian-enter-and-indent-sexp "<return>")))
+  (sp-local-pair mode "\"\"\"" "\"\"\"" :post-handlers
+                 '((radian-enter-and-indent-sexp "RET")
+                   (radian-enter-and-indent-sexp "<return>"))))
+
 
 (provide 'init-better-defaults)

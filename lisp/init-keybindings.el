@@ -45,7 +45,7 @@
   "3"  'select-window-3
   "w/" 'split-window-right
   "w-" 'split-window-below
-  ":"  'counsel-M-x
+  "SPC" 'counsel-M-x
   "wM" 'delete-other-windows
   "qq" 'save-buffers-kill-terminal
   "s'" 'org-edit-special
@@ -81,8 +81,6 @@
                 (kbd "C-d")    'evil-scroll-down
                 (kbd "C-u")    'evil-scroll-up
                 )))
-
-
 
 
 (provide 'init-keybindings)

@@ -46,7 +46,7 @@
  '(geiser-mit-source-directory "/usr/local/bin")
  '(package-selected-packages
    (quote
-    (org-download geiser use-package goto-chg helm-core multiple-cursors pkg-info popup undo-tree package-build shut-up epl git commander f dash s pallet company monokai-theme hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder web-mode js2-refactor expand-region iedit emmet-mode org-bullets helm-ag flycheck yasnippet yasnippet-snippets auto-yasnippet evil evil-leader window-numbering evil-surround evil-nerd-commenter which-key)))
+    (cnfonts org-download geiser use-package goto-chg helm-core multiple-cursors pkg-info popup undo-tree package-build shut-up epl git commander f dash s pallet company monokai-theme hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder web-mode js2-refactor expand-region iedit emmet-mode org-bullets helm-ag flycheck yasnippet yasnippet-snippets auto-yasnippet evil evil-leader window-numbering evil-surround evil-nerd-commenter which-key)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 60)
  '(which-key-frame-max-height 60)

@@ -7,7 +7,7 @@
 ;; set cursor style
 (setq-default cursor-type 'bar)
 ;; open with full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+;; (setq initial-frame-alist (quote ((fullscreen . maximized))))
 ;; highlight current line
 (global-hl-line-mode t)
 

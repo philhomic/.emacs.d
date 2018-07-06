@@ -15,5 +15,7 @@
    (ruby       . t)
    (scheme     . t)
    (css        . t)))
+;; cancel confirmation before org-babel evaluation
+(setq org-confirm-babel-evaluate nil)
 
 (provide 'init-org)
